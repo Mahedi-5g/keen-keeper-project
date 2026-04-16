@@ -1,10 +1,10 @@
 import contacts from "@/data/contacts.json";
 import Image from "next/image";
+import Link from "next/link";
+
 import { AiTwotoneDelete } from "react-icons/ai";
-import { BiAlarmSnooze, BiPhoneCall } from "react-icons/bi";
+import { BiAlarmSnooze } from "react-icons/bi";
 import { LuFolderArchive } from "react-icons/lu";
-import { MdOutlineTextsms } from "react-icons/md";
-import { PiVideoCameraBold } from "react-icons/pi";
 
 const ContactDetails = async ({ params }) => {
 
@@ -62,12 +62,12 @@ const ContactDetails = async ({ params }) => {
                     </p>
                 </div>
 
-                <button className='btn w-full'><BiAlarmSnooze />Snooze 2 Weeks</button>
+                <button className='btn w-full'><BiAlarmSnooze /> Snooze 2 Weeks</button>
                 <button className='btn w-full'><LuFolderArchive /> Archive</button>
                 <button className='btn w-full btn-error'><AiTwotoneDelete /> Delete</button>
             </div>
 
-           
+
             <div className='col-span-8 space-y-6'>
 
                 <div className='grid grid-cols-3 gap-4 '>
@@ -108,27 +108,59 @@ const ContactDetails = async ({ params }) => {
                 <div className="bg-base-200 shadow p-4">
                     <h3>Quick Check-In</h3>
                     <div className='grid grid-cols-3 gap-4 pt-1'>
-                    <div className="card bg-base-100 shadow text-center p-4 flex flex-col items-center justify-center">
-                        <h2 className='text-3xl font-bold'>
-                            <BiPhoneCall />
-                        </h2>
-                        <p>call</p>
-                    </div>
+                        {/* <Link href="/timeLinePage" className="card bg-base-100 shadow text-center p-4 flex flex-col items-center justify-center">
+                            <Image
+                                src="/assets/call.png"
+                                alt="call"
+                                width={30}
+                                height={30}
+                            />
+                            <p className="mt-2">Call</p>
+                        </Link>
+                        <Link href="/timeLinePage" className="card bg-base-100 shadow text-center p-4 flex flex-col items-center justify-center">
+                            <Image
+                                src="/assets/text.png"
+                                alt="text"
+                                width={30}
+                                height={30}
+                            />
+                            <p className="mt-2">Text</p>
+                        </Link>
+                        <Link href="/timeLinePage" className="card bg-base-100 shadow text-center p-4 flex flex-col items-center justify-center">
+                            <Image
+                                src="/assets/video.png"
+                                alt="video"
+                                width={30}
+                                height={30}
+                            />
+                            <p className="mt-2">Video</p>
+                        </Link> */}
 
-                    <div className="card bg-base-100 shadow text-center p-4 flex flex-col items-center justify-center">
-                        <h2 className='text-3xl font-bold'>
-                           <MdOutlineTextsms />
-                        </h2>
-                        <p>Text</p>
-                    </div>
+                        <Link
+                            href={`/timeLinePage?type=call&name=${contact.name}`}
+                            className="card bg-base-100 shadow text-center p-4 flex flex-col items-center justify-center"
+                        >
+                            <Image src="/assets/call.png" alt="call" width={30} height={30} />
+                            <p className="mt-2">Call</p>
+                        </Link>
 
-                    <div className="card bg-base-100 shadow text-center flex flex-col items-center justify-center p-4">
-                        <h2 className='text-3xl font-bold'>
-                           <PiVideoCameraBold />
-                        </h2>
-                        <p>Video</p>
+                        <Link
+                            href={`/timeLinePage?type=text&name=${contact.name}`}
+                            className="card bg-base-100 shadow text-center p-4 flex flex-col items-center justify-center"
+                        >
+                            <Image src="/assets/text.png" alt="text" width={30} height={30} />
+                            <p className="mt-2">Text</p>
+                        </Link>
+
+                        <Link
+                            href={`/timeLinePage?type=video&name=${contact.name}`}
+                            className="card bg-base-100 shadow text-center p-4 flex flex-col items-center justify-center"
+                        >
+                            <Image src="/assets/video.png" alt="video" width={30} height={30} />
+                            <p className="mt-2">Video</p>
+                        </Link>
+
                     </div>
-                </div>
 
 
                 </div>

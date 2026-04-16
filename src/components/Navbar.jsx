@@ -33,7 +33,7 @@ const Navbar = () => {
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
-                <Link href="/homePage" className="btn btn-ghost text-2xl font-extrabold">
+                <Link href="/homePage" className="btn btn-ghost text-3xl font-extrabold">
                     Keen <span className="font-semibold">Keeper</span> 
                 </Link>
             </div>
