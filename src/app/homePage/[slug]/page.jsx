@@ -25,12 +25,11 @@ const ContactDetails = async ({ params }) => {
     }
 
     return (
-        <div className='px-32 py-10 grid grid-cols-12 gap-6'>
+        <div className='px-4 py-6 md:px-16 md:py-12 lg:px-32 lg:py-16 grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-6'>
 
-            <div className='col-span-4 space-y-4'>
-
+    
+            <div className='col-span-12 md:col-span-6 lg:col-span-4 space-y-4'>
                 <div className="card bg-base-100 shadow p-6 text-center">
-
                     <Image
                         src={contact.picture}
                         alt={contact.name}
@@ -38,28 +37,13 @@ const ContactDetails = async ({ params }) => {
                         height={64}
                         className="rounded-full mx-auto h-16 w-16"
                     />
-
-                    <h2 className='font-bold text-lg mt-3'>
-                        {contact.name}
-                    </h2>
-
-                    <p className="text-sm text-gray-500">
-                        {contact.email}
-                    </p>
-
-                    <div className="flex gap-4 mx-auto">
-                        <div className={`${statusStyle[contact.status]} mt-2`}>
-                            {contact.status}
-                        </div>
-
-                        <div className='badge badge-outline mt-2'>
-                            {contact.tags[0]}
-                        </div>
+                    <h2 className='font-bold text-lg mt-3'>{contact.name}</h2>
+                    <p className="text-sm text-gray-500">{contact.email}</p>
+                    <div className="flex flex-wrap gap-2 justify-center mt-2">
+                        <div className={`${statusStyle[contact.status]}`}>{contact.status}</div>
+                        <div className='badge badge-outline'>{contact.tags[0]}</div>
                     </div>
-
-                    <p className='italic text-sm mt-2'>
-                        {contact.bio}
-                    </p>
+                    <p className='italic text-sm mt-2'>{contact.bio}</p>
                 </div>
 
                 <button className='btn w-full'><BiAlarmSnooze /> Snooze 2 Weeks</button>
@@ -67,106 +51,51 @@ const ContactDetails = async ({ params }) => {
                 <button className='btn w-full btn-error'><AiTwotoneDelete /> Delete</button>
             </div>
 
-
-            <div className='col-span-8 space-y-6'>
-
-                <div className='grid grid-cols-3 gap-4 '>
+    
+            <div className='col-span-12 md:col-span-6 lg:col-span-8 space-y-6'>
+                <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
                     <div className="card bg-base-100 shadow text-center p-6">
-                        <h2 className='text-3xl font-bold'>
-                            {contact.days_since_contact}
-                        </h2>
+                        <h2 className='text-3xl font-bold'>{contact.days_since_contact}</h2>
                         <p>Days Since Contact</p>
                     </div>
-
                     <div className="card bg-base-100 shadow text-center p-6">
-                        <h2 className='text-3xl font-bold'>
-                            {contact.goal}
-                        </h2>
+                        <h2 className='text-3xl font-bold'>{contact.goal}</h2>
                         <p>Goal (Days)</p>
                     </div>
-
                     <div className="card bg-base-100 shadow text-center p-6">
-                        <h2 className='text-xl font-bold'>
-                            {contact.next_due_date}
-                        </h2>
+                        <h2 className='text-xl font-bold'>{contact.next_due_date}</h2>
                         <p>Next Due</p>
                     </div>
                 </div>
 
                 <div className="card bg-base-100 shadow p-7">
-                    <div className="flex justify-between">
+                    <div className="flex justify-between items-center">
                         <h2 className='font-semibold text-lg'>Relationship Goal</h2>
-                        <button className="btn">Edit</button>
+                        <button className="btn btn-sm">Edit</button>
                     </div>
-                    <p>
-                        Connect every <span className='font-bold'>
-                            {contact.goal} days
-                        </span>
-                    </p>
+                    <p>Connect every <span className='font-bold'>{contact.goal} days</span></p>
                 </div>
 
                 <div className="bg-base-200 shadow p-4">
-                    <h3>Quick Check-In</h3>
-                    <div className='grid grid-cols-3 gap-4 pt-1'>
-                        {/* <Link href="/timeLinePage" className="card bg-base-100 shadow text-center p-4 flex flex-col items-center justify-center">
-                            <Image
-                                src="/assets/call.png"
-                                alt="call"
-                                width={30}
-                                height={30}
-                            />
-                            <p className="mt-2">Call</p>
-                        </Link>
-                        <Link href="/timeLinePage" className="card bg-base-100 shadow text-center p-4 flex flex-col items-center justify-center">
-                            <Image
-                                src="/assets/text.png"
-                                alt="text"
-                                width={30}
-                                height={30}
-                            />
-                            <p className="mt-2">Text</p>
-                        </Link>
-                        <Link href="/timeLinePage" className="card bg-base-100 shadow text-center p-4 flex flex-col items-center justify-center">
-                            <Image
-                                src="/assets/video.png"
-                                alt="video"
-                                width={30}
-                                height={30}
-                            />
-                            <p className="mt-2">Video</p>
-                        </Link> */}
-
-                        <Link
-                            href={`/timeLinePage?type=call&name=${contact.name}`}
-                            className="card bg-base-100 shadow text-center p-4 flex flex-col items-center justify-center"
-                        >
+                    <h3 className="font-semibold">Quick Check-In</h3>
+                    <div className='grid grid-cols-1 md:grid-cols-3 gap-4 pt-2'>
+                        <Link href="/timeLinePage" className="card bg-base-100 shadow text-center p-4 flex flex-col items-center">
                             <Image src="/assets/call.png" alt="call" width={30} height={30} />
                             <p className="mt-2">Call</p>
                         </Link>
-
-                        <Link
-                            href={`/timeLinePage?type=text&name=${contact.name}`}
-                            className="card bg-base-100 shadow text-center p-4 flex flex-col items-center justify-center"
-                        >
+                        <Link href="/timeLinePage" className="card bg-base-100 shadow text-center p-4 flex flex-col items-center">
                             <Image src="/assets/text.png" alt="text" width={30} height={30} />
                             <p className="mt-2">Text</p>
                         </Link>
-
-                        <Link
-                            href={`/timeLinePage?type=video&name=${contact.name}`}
-                            className="card bg-base-100 shadow text-center p-4 flex flex-col items-center justify-center"
-                        >
+                        <Link href="/timeLinePage" className="card bg-base-100 shadow text-center p-4 flex flex-col items-center">
                             <Image src="/assets/video.png" alt="video" width={30} height={30} />
                             <p className="mt-2">Video</p>
                         </Link>
-
                     </div>
-
-
                 </div>
-
             </div>
         </div>
+
     );
 };
 

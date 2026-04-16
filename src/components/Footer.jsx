@@ -5,7 +5,7 @@ import { FiFacebook } from 'react-icons/fi';
 
 const Footer = () => {
     return (
-        <footer className="footer footer-horizontal footer-center bg-green-700 text-gray-300 rounded px-40 py-8  gap-3">
+        <footer className="footer footer-horizontal footer-center bg-green-700 text-gray-300 rounded px-5 md:px-16 lg:px-32 py-8  gap-3">
             <h1 className='text-5xl font-bold text-gray-50'>KeenKeeper</h1>
             <p className='text-lg font-normal text-gray-200'>Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most</p>
             <nav>

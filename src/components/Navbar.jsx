@@ -10,7 +10,7 @@ const Navbar = () => {
 
     const links = (
         <>
-            <li className={`font-semibold ${pathname === "/homePage" ? "text-white bg-green-700 rounded-sm" : ""}`}>
+            <li className={`hidden md:block lg:block font-semibold ${pathname === "/homePage" ? "text-white bg-green-700 rounded-sm" : ""}`}>
                 <Link href="/homePage" className="flex items-center gap-1">
                     <IoHomeOutline /> Home
                 </Link>
