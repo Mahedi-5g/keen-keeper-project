@@ -10,7 +10,9 @@ const Navbar = () => {
 
     const links = (
         <>
-            <li className={`hidden md:block lg:block font-semibold ${pathname === "/homePage" ? "text-white bg-green-700 rounded-sm" : ""}`}>
+            <li className={`hidden md:block lg:block font-semibold ${pathname === "/homePage" || pathname === "/"
+                ? "text-white bg-green-700 rounded-sm"
+                : ""}`}>
                 <Link href="/homePage" className="flex items-center gap-1">
                     <IoHomeOutline /> Home
                 </Link>
@@ -34,7 +36,7 @@ const Navbar = () => {
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
                 <Link href="/homePage" className="btn btn-ghost text-3xl font-extrabold">
-                    Keen <span className="font-semibold">Keeper</span> 
+                    Keen <span className="font-semibold">Keeper</span>
                 </Link>
             </div>
 
