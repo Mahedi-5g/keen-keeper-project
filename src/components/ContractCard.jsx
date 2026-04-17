@@ -22,16 +22,21 @@ const ContactCard = ({ card }) => {
                 <h2 className="font-bold">{card.name}</h2>
                 <p>{card.days_since_contact}d ago</p>
 
-                <div className='flex gap-2 justify-center py-2'>
-                    <p className='badge badge-accent'>{card.tags[0]}</p>
-                    <p className='badge bg-teal-400'>{card.tags[1]}</p>
+                <div className='flex gap-2 justify-center py-2 '>
+                    <p className='badge bg-lime-500'>{card.tags[0]}</p>
+                    {/* <p className='badge bg-lime-500'>{card.tags[1]}</p> */}
+                    {card.tags?.[1] && (
+                        <p className="badge bg-lime-500">
+                            {card.tags[1]}
+                        </p>
+                    )}
                 </div>
 
                 <p
                     className={`
-                        ${card.status === "overdue" ? "badge badge-error" : ""}
-                        ${card.status === "almost due" ? "badge badge-info" : ""}
-                        ${card.status === "on-track" ? "badge badge-warning" : ""}
+                        ${card.status === "overdue" ? "badge badge-error text-white" : ""}
+                        ${card.status === "almost due" ? "badge bg-amber-300 " : ""}
+                        ${card.status === "on-track" ? "badge bg-green-700 text-white" : ""}
                     `}
                 >
                     {card.status}

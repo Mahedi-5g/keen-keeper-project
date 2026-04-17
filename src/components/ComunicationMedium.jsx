@@ -34,18 +34,18 @@ const ComunicationMedium = ({ name }) => {
                 }}
                 className="card bg-base-100 shadow text-center p-4 cursor-pointer hover:bg-base-300"
             >
-                <Image src="/assets/call.png" alt="call" width={30} height={30} />
+                <Image src="/assets/call.png" alt="call" width={30} height={30} className='mx-auto' />
                 <p className="mt-2">Call</p>
             </div>
             <div onClick={() => {handleClick("text"); toast.success("Text sent successfully");}}
                 className="card bg-base-100 shadow text-center p-4 cursor-pointer  hover:bg-base-300">
-                <Image src="/assets/text.png" alt="text" width={30} height={30} />
+                <Image src="/assets/text.png" alt="text" width={30} height={30} className='mx-auto'/>
                 <p className="mt-2">Text</p>
             </div>
 
             <div onClick={() => {handleClick("video"); toast.success("Video successfully");}}
                 className="card bg-base-100 shadow text-center p-4 cursor-pointer  hover:bg-base-300">
-                <Image src="/assets/video.png" alt="video" width={30} height={30} />
+                <Image src="/assets/video.png" alt="video" width={30} height={30} className='mx-auto'/>
                 <p className="mt-2">Video</p>
             </div>
 
