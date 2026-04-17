@@ -1,10 +1,11 @@
+
 import React from 'react';
 import contacts from "@/data/contacts.json";
-import Image from 'next/image';
-import Link from 'next/link';
+import ContactCard from '@/components/ContractCard';
 
 
-const HomePage = () => {
+const HomePage = async() => {
+    await new Promise(resolve => setTimeout(resolve, 500));
     return (
         <div className='px-5 md:px-16 lg:px-32 py-8 md:py-12 lg:py-16'>
             <div className='text-center'>
@@ -45,36 +46,10 @@ const HomePage = () => {
             <div>
                 <h1>Your Friends</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {contacts.map((c) => (
-                        <Link key={c.id} href={`/homePage/${c.id}`}>
-                            <div className="p-4 rounded shadow-md text-center">
-                                <Image
-                                    src={c.picture}
-                                    alt={c.name}
-                                    width={60}
-                                    height={60}
-                                    className="rounded-full mx-auto h-16 w-16"
-                                />
-                                <h2 className="font-bold">{c.name}</h2>
-                                <p>{c.days_since_contact}d ago</p>
-                                <div className='flex gap-2 text-center py-2 mx-auto'>
-                                    <p className='badge badge-accent'>{c.tags[0]}</p>
-                                    <p className=' bg-teal-400 rounded-lg'>{c.tags[1]}</p>
-                                </div>
-
-                                <p
-                                    className={`
-                                         ${c.status === "overdue" ? "badge badge-error" : ""}
-                                         ${c.status === "almost due" ? "badge badge-info" : ""}
-                                         ${c.status === "on-track" ? "badge badge-warning" : ""}
-                                         `}
-                                >
-                                    {c.status}
-                                </p>
-
-
-                            </div>
-                        </Link>
+                    {contacts.map((card) => (
+                        <ContactCard
+                        key={card.id} card={card}
+                        />
 
 
                     ))}

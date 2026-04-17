@@ -1,10 +1,12 @@
+import ComunicationMedium from "@/components/ComunicationMedium";
 import contacts from "@/data/contacts.json";
 import Image from "next/image";
-import Link from "next/link";
+
 
 import { AiTwotoneDelete } from "react-icons/ai";
 import { BiAlarmSnooze } from "react-icons/bi";
 import { LuFolderArchive } from "react-icons/lu";
+
 
 const ContactDetails = async ({ params }) => {
 
@@ -78,20 +80,7 @@ const ContactDetails = async ({ params }) => {
 
                 <div className="bg-base-200 shadow p-4">
                     <h3 className="font-semibold">Quick Check-In</h3>
-                    <div className='grid grid-cols-1 md:grid-cols-3 gap-4 pt-2'>
-                        <Link href="/timeLinePage" className="card bg-base-100 shadow text-center p-4 flex flex-col items-center">
-                            <Image src="/assets/call.png" alt="call" width={30} height={30} />
-                            <p className="mt-2">Call</p>
-                        </Link>
-                        <Link href="/timeLinePage" className="card bg-base-100 shadow text-center p-4 flex flex-col items-center">
-                            <Image src="/assets/text.png" alt="text" width={30} height={30} />
-                            <p className="mt-2">Text</p>
-                        </Link>
-                        <Link href="/timeLinePage" className="card bg-base-100 shadow text-center p-4 flex flex-col items-center">
-                            <Image src="/assets/video.png" alt="video" width={30} height={30} />
-                            <p className="mt-2">Video</p>
-                        </Link>
-                    </div>
+                    <ComunicationMedium name={contact.name}/>
                 </div>
             </div>
         </div>
