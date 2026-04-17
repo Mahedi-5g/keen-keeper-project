@@ -21,19 +21,29 @@ const TimeLinePage = () => {
         video: "/assets/video.png"
     };
 
+    const [filter, setFilter] = useState("all");
+
+    const filteredData = data
+        .filter(item => filter === "all" || item.type === filter)
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
+
     return (
         <div className='px-5 md:px-16 lg:px-32 py-8 md:py-12 lg:py-16'>
             <h1 className='font-bold text-5xl text-gray-800'>Timeline</h1>
 
-            <select defaultValue="Pick a color" className="select my-3">
-                <option disabled={true}>Filter Timeline</option>
-                <option>Call</option>
-                <option>Text</option>
-                <option>Video</option>
+            <select
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                className="select select-bordered mt-4"
+            >
+                <option value="all">All</option>
+                <option value="call">Call</option>
+                <option value="text">Text</option>
+                <option value="video">Video</option>
             </select>
 
             <div className="space-y-4 mt-6">
-                {data.map((item, index) => (
+                {filteredData.map((item, index) => (
                     <div key={index} className='w-full p-2 bg-base-200 shadow rounded-md flex gap-3'>
 
                         <Image
